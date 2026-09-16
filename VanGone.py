@@ -189,5 +189,9 @@ def main():
             pbar.close()
 
 if __name__ == "__main__":
-    main()
-    save_log_to_file()
+    try:
+        main()
+    except Exception:
+        logging.exception("Fatal error while running main()")
+    finally:
+        save_log_to_file()
